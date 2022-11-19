@@ -1,0 +1,23 @@
+{
+  "name": "git-hook-check-merge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leeonon/git-hook-check-merge.git"
+  },
+  "author": "yang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leeonon/git-hook-check-merge/issues"
+  },
+  "homepage": "https://github.com/leeonon/git-hook-check-merge#readme",
+  "devDependencies": {
+    "husky": "^8.0.0"
+  }
+}
