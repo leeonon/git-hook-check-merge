@@ -26,6 +26,4 @@ function main() {
   }
 }
 
-// main();
-
-showConfirm('456', '899');
+main();
