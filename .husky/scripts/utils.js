@@ -23,8 +23,8 @@ function showConfirm(currentBranch, mergeBranch) {
       console.log('Caught exception: ' + err);
   });
 
-  process.on('exit', function() {
-    console.log( "never see this log message" )
+  process.on('exit', function(code) {
+    console.log( "never see this log message", code)
   })
 
   rl.on('SIGINT', () => {
@@ -55,6 +55,8 @@ function showConfirm(currentBranch, mergeBranch) {
     }
   });
 }
+
+showConfirm('123', '456')
 
 module.exports = {
   showConfirm,
