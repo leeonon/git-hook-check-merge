@@ -4,11 +4,13 @@
 if [ "$?" -eq 0 ]; then
   #  node ./.husky/scripts/post-merge.js
   currentBranch=$(git symbolic-ref --short HEAD)
-  mergeBranch=$(git reflog -1)
-  mergeBranchName=$(grep '/@{\d+\}: merge (.*):/' $mergeBranch)
+  # mergeBranch=$(git reflog -1)
+  # mergeBranchName=$(grep '/@{\d+\}: merge (.*):/' $mergeBranch)
   echo
   echo "**** Running post-commit hook from branch $currentBranch"
-  echo "**** Running post-commit hook from branch $orightBranch"
+  echo "**** Running post-commit hook from branch $mergeBranchName"
 else
    echo ""
 fi
+
+echo "ecf892d (HEAD -> dev, master) HEAD@{0}: merge master: Fast-forward" | grep -Eo "/@\{\d+\}: merge (.*):/"
