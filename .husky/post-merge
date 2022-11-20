@@ -2,7 +2,7 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 if [ "$?" -eq 0 ]; then
-  #  node ./.husky/scripts/post-merge.js
+   node ./.husky/scripts/post-merge.js
   currentBranch=$(git symbolic-ref --short HEAD)
   # mergeBranch=$(git reflog -1)
   # mergeBranchName=$(grep '/@{\d+\}: merge (.*):/' $mergeBranch)
@@ -12,5 +12,3 @@ if [ "$?" -eq 0 ]; then
 else
    echo ""
 fi
-
-echo "ecf892d (HEAD -> dev, master) HEAD@{0}: merge master: Fast-forward" | grep -Eo "/@\{\d+\}: merge (.*):/"
