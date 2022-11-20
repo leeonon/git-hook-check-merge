@@ -15,7 +15,7 @@ function showConfirm(currentBranch, mergeBranch) {
   console.log(`\x1B[31m警告：你正在将${mergeBranch}分支合并到${currentBranch}分支, 这是一个危险操作 \x1B[0m`);
 
   const rl = readline.createInterface({
-    // input: process.stdin,
+    input: process.stdin,
     output: process.stdout,
   });
 
