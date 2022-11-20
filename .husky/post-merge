@@ -2,8 +2,11 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 if [ "$?" -eq 0 ]; then
-   echo "All fine."
-   node ./.husky/scripts/post-merge.js
+  npm run merge
+  # currentBranch=$(git symbolic-ref --short HEAD)
+  # echo
+  # echo "**** Running post-commit hook from branch $branch"
+  # echo
 else
-   echo "There were merge conflicts."
+   echo ""
 fi

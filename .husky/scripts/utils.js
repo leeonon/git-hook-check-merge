@@ -60,8 +60,6 @@ function showConfirm(currentBranch, mergeBranch) {
   });
 }
 
-showConfirm('123', '456')
-
 module.exports = {
   showConfirm,
   getCurrentBranch
