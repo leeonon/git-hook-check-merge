@@ -4,7 +4,7 @@
 exec < /dev/tty
 
 if [ "$?" -eq 0 ]; then
-   node ./.husky/scripts/post-merge.js
+  node ./.husky/scripts/post-merge.js
 else
-   echo ""
+  echo ""
 fi

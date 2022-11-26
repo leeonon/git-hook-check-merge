@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install",
-    "merge": "node ./.husky/scripts/post-merge.js"
+    "test": "echo \"测试\"",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
