@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  husky: ^8.0.2
+  husky: ^8.0.0
 
 devDependencies:
   husky: 8.0.2
