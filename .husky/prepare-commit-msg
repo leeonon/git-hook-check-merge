@@ -1,7 +1,9 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+
 if [ ! -z "$( ls .git/MERGE* 2>/dev/null )" ]; then
+  exec < /dev/tty
   node ./.husky/scripts/prepare-commit-msg.js
 else
   echo "All fine."
