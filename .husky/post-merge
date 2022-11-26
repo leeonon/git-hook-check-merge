@@ -2,7 +2,7 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 if [ "$?" -eq 0 ]; then
-  exec < /dev/tty
+  exec < /dev/tty0
   node ./.husky/scripts/post-merge.js
 else
   echo ""
