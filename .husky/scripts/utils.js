@@ -19,32 +19,6 @@ function showConfirm(currentBranch, mergeBranch) {
     output: process.stdout,
   });
 
-  process.on('SIGINT', function() {
-    console.log("got SIGINT");
-  });
-
-  process.on('uncaughtException', function(err) {
-      console.log('Caught exception: ' + err);
-  });
-
-  process.on('exit', function(code) {
-    console.log( "never see this log message", code)
-  })
-
-  rl.on('SIGINT', () => {
-    console.log('🚀 ~ file: utils.js ~ line 33 ~ rl.on ~ SIGINT');
-  });
-
-  rl.on('SIGTSTP', () => {
-    // 这会重写 SIGTSTP，且防止程序进入后台。
-    console.log('捕获 SIGTSTP。');
-  });
-
-  rl.on('SIGCONT', () => {
-    // `prompt` 会自动恢复流
-    console.log('🚀 ~ file: utils.js ~ line 31 ~ rl.on ~ prompt', prompt);
-  });
-
   rl.question(`确定要将 ${mergeBranch} 分支合并到当前分支吗？(y/n) `, (answer) => {
     if (answer === 'y') {
       rl.close();
