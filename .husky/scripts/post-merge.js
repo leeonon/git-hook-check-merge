@@ -9,9 +9,12 @@ function getMergeBranch() {
   // 从 reflog 提取合并进来的分支名
   const reg = /@\{\d+\}: merge (.*):/;
   const reflogMessage = execSync('git reflog -1', { encoding: 'utf8' });
-  const mergedBranchName = reg.exec(reflogMessage)[1];
+  const refExec = reg.exec(reflogMessage);
+  if (refExec && refExec.length) {
+    return reg.exec(reflogMessage)[1];
+  }
 
-  return mergedBranchName;
+  return null;
 }
 
 function main() {
