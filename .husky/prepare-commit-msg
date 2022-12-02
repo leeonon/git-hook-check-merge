@@ -1,8 +1,17 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 . "$(dirname -- "$0")/_/husky.sh"
 
-
 if [ ! -z "$( ls .git/MERGE* 2>/dev/null )" ]; then
+  # if ["$(uname)" == "Darwin"]; then
+  #   exec < /dev/tty
+  #   node ./.husky/scripts/prepare-commit-msg.js
+  # elif ["$(expr substr $(uname -s) 1 5)" == "Linux"]; then
+  #   exec < /dev/tty
+  #   node ./.husky/scripts/prepare-commit-msg.js
+  # elif ["$(expr substr $(uname -s) 1 10)" == "MINGW32_NT"]; then
+  #   exec < /dev/console
+  #   node ./.husky/scripts/prepare-commit-msg.js
+  # fi
   exec < /dev/tty
   node ./.husky/scripts/prepare-commit-msg.js
 else

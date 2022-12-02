@@ -1,8 +1,13 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 . "$(dirname -- "$0")/_/husky.sh"
 
 if [ "$?" -eq 0 ]; then
-  exec < /dev/tty
+  # if [ "$(expr substr $(uname -s) 1 5)" == "MINGW" ]; then
+  #   exec < /dev/console
+  #   node ./.husky/scripts/post-merge.js
+  # else
+  # fi
+  exec < /dev/console
   node ./.husky/scripts/post-merge.js
 else
   echo ""

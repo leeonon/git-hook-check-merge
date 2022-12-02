@@ -36,4 +36,4 @@ function getMergeBranch() {
     const x = isMergingConflict();
     console.log('🚀 ~ file: prepare-commit-msg.js ~ line 36 ~ isMergingConflict', x);
   }
-})()
+})();

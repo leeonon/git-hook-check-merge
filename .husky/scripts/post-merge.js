@@ -1,17 +1,15 @@
 // https://github.com/typicode/husky/issues/930
+// https://github.com/dahlbyk/posh-git/issues/106
 
 const { execSync } = require('node:child_process');
-const { showConfirm, getCurrentBranch } = require('./utils');
-
-const CHECK_BRANCH = ['master'];
+const { checkMerge, showConfirm, getCurrentBranch } = require('./utils');
 
 function getMergeBranch() {
-  // 从 reflog 提取合并进来的分支名
   const reg = /@\{\d+\}: merge (.*):/;
   const reflogMessage = execSync('git reflog -1', { encoding: 'utf8' });
   const refExec = reg.exec(reflogMessage);
   if (refExec && refExec.length) {
-    return reg.exec(reflogMessage)[1];
+    return reg.exec(reflogMessage)?.[1];
   }
 
   return null;
@@ -20,11 +18,9 @@ function getMergeBranch() {
 function main() {
   const mergeBranch = getMergeBranch();
 
-  if (CHECK_BRANCH.includes(mergeBranch)) {
+  if (checkMerge(mergeBranch)) {
     const currentBranch = getCurrentBranch();
-
     showConfirm(currentBranch, mergeBranch);
-    return;
   }
 }
 
